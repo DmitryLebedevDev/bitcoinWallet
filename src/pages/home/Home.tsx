@@ -2,6 +2,7 @@ import React from 'react'
 import { useStore } from 'effector-react';
 import { $user } from '../../models/user';
 import { makeStyles, TextField } from '@material-ui/core';
+import { Balance } from './Balance/Balance';
 
 const useStyles = makeStyles({
   fields: {
@@ -30,6 +31,7 @@ export const Home = () => {
   const classes = useStyles();
   return (
     <div className="container">
+      <Balance value={12}/>
       <div className={classes.fields}>
         <div className={classes.userInfoField}>
           <TextField value={user.privateKey}/>
