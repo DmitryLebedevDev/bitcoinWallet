@@ -1,29 +1,12 @@
 import React from 'react'
 import { useStore } from 'effector-react';
-import { $user } from '../../models/user';
-import { makeStyles, TextField } from '@material-ui/core';
-import { Balance } from './Balance/Balance';
+import { makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles({
-  fields: {
-    '& > * + *': {
-      marginTop: '8px'
-    }
-  },
-  userInfoField: {
-    display: 'flex',
-    alignItems: 'center',
-    whiteSpace: 'nowrap',
-    '& > .MuiTextField-root': {
-      width: '600px',
-      marginRight: '5px',
-    }
-  },
-  userInfoFieldHelperText: {
-    flexShrink: 0,
-    width: '116px',
-  }
-})
+import { $user } from '../../models/user';
+import { Balance } from './Balance/Balance';
+import { UserInfo } from './UserInfo/UserInfo';
+
+const useStyles = makeStyles({})
 
 export const Home = () => {
   const user = useStore($user)
@@ -32,26 +15,7 @@ export const Home = () => {
   return (
     <div className="container">
       <Balance value={12}/>
-      <div className={classes.fields}>
-        <div className={classes.userInfoField}>
-          <TextField value={user.privateKey}/>
-          <span className={classes.userInfoFieldHelperText}>
-            - private key
-          </span>
-        </div>
-        <div className={classes.userInfoField}>
-          <TextField value={user.publicKey}/>
-          <span className={classes.userInfoFieldHelperText}>
-            - public key
-          </span>
-        </div>
-        <div className={classes.userInfoField}>
-          <TextField value={user.address}/>
-          <span className={classes.userInfoFieldHelperText}>
-            - address
-          </span>
-        </div>
-      </div>
+      <UserInfo {...user}/>
     </div>
   )
 }

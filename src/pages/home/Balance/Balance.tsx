@@ -42,7 +42,7 @@ export const Balance:FC<Iprops> = ({value}) => {
 
   return (
     <div className={classes.circle}>
-      {`${value}`}
+      {`${value}₿`}
     </div>
   )
 }
