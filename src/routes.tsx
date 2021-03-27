@@ -5,7 +5,7 @@ import { Home } from './pages/home/Home'
 export const Routes = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Home}/>
+      <Route path="/" component={Home}/>
     </Switch>
   )
 }
