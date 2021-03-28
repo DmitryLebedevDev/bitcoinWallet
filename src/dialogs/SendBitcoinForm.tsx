@@ -18,7 +18,12 @@ export const SendBitcoinForm:FC<Iprops> = (
   {open, handleClose}
 ) => {
   return (
-    <Dialog open={open} onClose={handleClose} disableRestoreFocus>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      fullWidth
+      disableRestoreFocus
+    >
       <DialogTitle>
         Send bitcoins
       </DialogTitle>
@@ -35,7 +40,7 @@ export const SendBitcoinForm:FC<Iprops> = (
         />
         <TextField
           type="number"
-          helperText="rewords for miner"
+          helperText="reword for miner"
           inputProps={{min: 0, max: 10, step: 0.001}}
           fullWidth
         />
