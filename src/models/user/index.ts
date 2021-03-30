@@ -1,26 +1,22 @@
-import { attach, createEffect, createStore } from "effector";
-import { ECPairInterface } from 'bitcoinjs-lib';
+import { attach, createEffect, createStore } from "effector"
 
-import { initUser } from "./initUser";
-import { IsendBitconFxData } from "./types";
+import { initUser } from "./initUser"
+import { IsendBitconFxData } from "./types"
 
 export const $user = createStore(
   initUser()
-);
-$user.watch(userInfo => {
-  console.log(userInfo.balance);
-})
+)
 
-export const fetchAddressBalanceFx = createEffect<string, number>();
+export const fetchAddressBalanceFx = createEffect<string, number>()
 export const updateUserBalanceFx = attach({
   effect: fetchAddressBalanceFx,
   source: $user,
   mapParams: (_, {address}) => {
     return address
   }
-});
+})
 
-export const sendBitcoinsFx = createEffect<IsendBitconFxData, number>();
+export const sendBitcoinsFx = createEffect<IsendBitconFxData, number>()
 export const sendUserBitcoinsFx = attach({
   effect: sendBitcoinsFx,
   source: $user,

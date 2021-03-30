@@ -7,11 +7,20 @@ export interface Itransaction {
     addresses: [string],
   }],
 }
+
+export interface IunspentTransaction {
+  txid: string,
+  n: number,
+}
+export interface IunspentTransactionsRes {
+  unspent: IunspentTransaction[]
+}
+
 export interface IaddressInfoRes {
   address: {
     address: string,
     confirmed: {
-      balance: number
+      balance: string
     },
     transactions: Itransaction[]
   }

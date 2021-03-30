@@ -1,21 +1,17 @@
-import React, { useState } from 'react'
-import { useStore } from 'effector-react';
-import { makeStyles } from '@material-ui/core';
+import React from 'react'
+import { useStore } from 'effector-react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 
-import { $user } from '../../models/user';
-import { Balance } from './Balance/Balance';
-import { UserAddress } from './UserAddress/UserAddress';
-import { SendBitcoinForm } from '../../dialogs/SendBitcoinForm';
-import { ViewUserPrivateKey } from '../../dialogs/ViewUserPrivateKey';
-
-const useStyles = makeStyles({})
+import { $user } from '../../models/user'
+import { Balance } from './Balance/Balance'
+import { UserAddress } from './UserAddress/UserAddress'
+import { SendBitcoinForm } from '../../dialogs/SendBitcoinForm'
+import { ViewUserPrivateKey } from '../../dialogs/ViewUserPrivateKey'
 
 export const Home = () => {
-  const user = useStore($user);
-  const history = useHistory();
+  const user = useStore($user)
+  const history = useHistory()
 
-  const classes = useStyles();
   return (
     <div className="container">
       <Balance value={user.balance}/>

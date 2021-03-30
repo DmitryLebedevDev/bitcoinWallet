@@ -1,4 +1,4 @@
-import { ECPairInterface } from "bitcoinjs-lib";
+import { ECPairInterface } from "bitcoinjs-lib"
 
 export interface IsendBitconFxData {
   value: number,

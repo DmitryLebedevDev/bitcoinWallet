@@ -1,39 +1,52 @@
-import * as bitcoinjs from 'bitcoinjs-lib';
+import * as bitcoinjs from 'bitcoinjs-lib'
 
-import { $user, fetchAddressBalanceFx, sendBitcoinsFx, sendUserBitcoinsFx, updateUserBalanceFx } from ".";
-import { getAddressBalanceReq, getLastTransactionReq, sendTransactionReq } from "../../api/api";
-import { bitcoinToSat } from '../../common/bitcoinToSat';
-import { getAddressIndexInTransaction } from "../../common/getAddressIndexInTransaction";
-import { satToBitcoin } from '../../common/satToBitcoin';
+import {
+  $user,
+  fetchAddressBalanceFx,
+  sendBitcoinsFx,
+  sendUserBitcoinsFx,
+  updateUserBalanceFx
+} from "."
+import {
+  getAddressBalanceReq,
+  getUnspentTransactionsReq,
+  sendTransactionReq
+} from "../../api/api"
+import { bitcoinToSat } from '../../common/bitcoinToSat'
+import { satToBitcoin } from '../../common/satToBitcoin'
 
-fetchAddressBalanceFx.use(getAddressBalanceReq);
+fetchAddressBalanceFx.use(getAddressBalanceReq)
 sendBitcoinsFx.use(async ({from, to, value, balance, fee, bitcoinInfo}) => {
-  const lastTransaction = await getLastTransactionReq(from);
-  if(!lastTransaction) throw new Error('sendBitcoinsFx not last transaction');
-
-  const addressIndexInLastTransaction = getAddressIndexInTransaction(
-    from, lastTransaction
+  const unspentTransactions = await getUnspentTransactionsReq(from)
+  if(!unspentTransactions.length) throw new Error(
+    'sendBitcoinsFx not unspent transactions'
   )
 
-  debugger
+  const balanceSat = bitcoinToSat(balance)
+  const valueSat = bitcoinToSat(value)
+  const feeSat = bitcoinToSat(fee)
+  const finalBalanceSat = balanceSat - valueSat - feeSat
 
-  const balanceSat = bitcoinToSat(balance);
-  const valueSat = bitcoinToSat(value);
-  const feeSat = bitcoinToSat(fee);
-  const finalBalanceSat = balanceSat - valueSat - feeSat;
-  const txb = new bitcoinjs.TransactionBuilder(bitcoinjs.networks.testnet);
+  const txb = unspentTransactions.reduce(
+    (txb, unspentTransaction) => {
+      txb.addInput(unspentTransaction.txid, unspentTransaction.n)
 
-  txb.addInput(lastTransaction.txid, addressIndexInLastTransaction);
-  txb.addOutput(to, valueSat);
-  txb.addOutput(from, finalBalanceSat);
+      return txb
+    },
+    new bitcoinjs.TransactionBuilder(bitcoinjs.networks.testnet)
+  )
 
-  txb.sign(0, bitcoinInfo);
+  txb.addOutput(to, valueSat)
+  txb.addOutput(from, finalBalanceSat)
 
-  const result = await sendTransactionReq(txb.build().toHex());
+  unspentTransactions.forEach((_, index) => {
+    txb.sign(index, bitcoinInfo)
+  })
 
-  if(!result) throw new Error('not created transaction');
+  const result = await sendTransactionReq(txb.build().toHex())
+  if(!result) throw new Error('not created transaction')
 
-  return satToBitcoin(finalBalanceSat);
+  return satToBitcoin(finalBalanceSat)
 })
 
 $user.on([
@@ -42,4 +55,4 @@ $user.on([
 ], (userInfo, newBalance) => ({
   ...userInfo,
   balance: newBalance
-}));
+}))

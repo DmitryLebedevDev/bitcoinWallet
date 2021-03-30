@@ -8,7 +8,8 @@ import {
   TextField
 } from '@material-ui/core'
 import Send from '@material-ui/icons/Send'
-import { sendUserBitcoinsFx } from '../models/user';
+
+import { sendUserBitcoinsFx } from '../models/user'
 
 interface Iprops {
   open: boolean,
@@ -19,9 +20,9 @@ export const SendBitcoinForm:FC<Iprops> = (
   {open, handleClose}
 ) => {
   // refactoring to formik
-  const addressRef = useRef<HTMLInputElement | null>(null);
-  const valueRef = useRef<HTMLInputElement | null>(null);
-  const feeRef = useRef<HTMLInputElement | null>(null);
+  const addressRef = useRef<HTMLInputElement | null>(null)
+  const valueRef = useRef<HTMLInputElement | null>(null)
+  const feeRef = useRef<HTMLInputElement | null>(null)
 
   const handleSend = () => {
     if(

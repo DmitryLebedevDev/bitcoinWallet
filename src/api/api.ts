@@ -1,8 +1,18 @@
 import axios from 'axios'
-import { IaddressInfoRes, Itransaction, IResStatus } from './api.interface';
 
-export const getAddressBalanceReq = (address: string) => axios.get<IaddressInfoRes>(
-  `https://testnet-api.smartbit.com.au/v1/blockchain/address/${address}`
+import {
+  IaddressInfoRes,
+  IResStatus,
+  IunspentTransactionsRes,
+  IunspentTransaction
+} from './api.interface'
+
+const api = axios.create({
+  baseURL: 'https://testnet-api.smartbit.com.au/v1/blockchain/'
+})
+
+export const getAddressBalanceReq = (address: string) => api.get<IaddressInfoRes>(
+  `address/${address}`
 ).then(({
   data: {
     address: {
@@ -10,16 +20,14 @@ export const getAddressBalanceReq = (address: string) => axios.get<IaddressInfoR
     }
   }
 }) => +balance)
-export const getLastTransactionReq = (address: string) => axios.get<IaddressInfoRes>(
-  `https://testnet-api.smartbit.com.au/v1/blockchain/address/${address}`
-).then<Itransaction | undefined>(({
+export const getUnspentTransactionsReq = (address: string) => axios.get<IunspentTransactionsRes>(
+  `address/${address}/unspent`
+).then<IunspentTransaction[]>(({
   data: {
-    address: {
-      transactions
-    }
+    unspent
   }
-}) => transactions[0])
+}) => unspent)
 export const sendTransactionReq = (hex: string) => axios.post<IResStatus>(
-  `https://testnet-api.smartbit.com.au/v1/blockchain/pushtx`,
+  `blockchain/pushtx`,
   {hex}
 )

@@ -1,9 +1,5 @@
 import React, { FC } from 'react'
-import { Button, Icon, makeStyles, TextField } from '@material-ui/core';
-import { Route, Switch } from 'react-router-dom'
-import VpnKeyIcon from '@material-ui/icons/VpnKey';
-
-import { Iuser } from '../../../models/user/types'
+import { makeStyles, TextField } from '@material-ui/core'
 
 const useStyles = makeStyles({
   userAddress: {
@@ -26,7 +22,7 @@ interface Iprops {
 }
 
 export const UserAddress:FC<Iprops> = ({address}) => {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <div className={classes.userAddress}>
       <TextField fullWidth value={address}/>

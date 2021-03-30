@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { IconButton, makeStyles } from '@material-ui/core'
-import { Link } from 'react-router-dom';
-import VpnKeyIcon from '@material-ui/icons/VpnKey';
-import Send from '@material-ui/icons/Send';
+import { Link } from 'react-router-dom'
+import VpnKeyIcon from '@material-ui/icons/VpnKey'
+import Send from '@material-ui/icons/Send'
 
 const useStyles = makeStyles({
   circle: {
@@ -67,7 +67,7 @@ interface Iprops {
 
 export const Balance:FC<Iprops> = ({value}) => {
 
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <div className={classes.circle}>
       <div className={classes.moveBlock}>
