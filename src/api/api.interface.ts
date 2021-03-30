@@ -19,6 +19,9 @@ export interface IunspentTransactionsRes {
 export interface IaddressInfoRes {
   address: {
     address: string,
+    total: {
+      balance: string
+    },
     confirmed: {
       balance: string
     },

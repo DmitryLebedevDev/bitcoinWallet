@@ -24,17 +24,18 @@ export const SendBitcoinForm:FC<Iprops> = (
   const valueRef = useRef<HTMLInputElement | null>(null)
   const feeRef = useRef<HTMLInputElement | null>(null)
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if(
       addressRef.current &&
       valueRef.current &&
       feeRef.current
     ) {
-      sendUserBitcoinsFx({
+      await sendUserBitcoinsFx({
         to: addressRef.current.value,
         value: +valueRef.current.value,
         fee: +feeRef.current.value
       })
+      handleClose();
     }
   }
 

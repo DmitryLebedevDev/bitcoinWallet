@@ -16,7 +16,7 @@ export const getAddressBalanceReq = (address: string) => api.get<IaddressInfoRes
 ).then(({
   data: {
     address: {
-      confirmed: {balance}
+      total: {balance}
     }
   }
 }) => +balance)
@@ -28,6 +28,6 @@ export const getUnspentTransactionsReq = (address: string) => api.get<IunspentTr
   }
 }) => unspent)
 export const sendTransactionReq = (hex: string) => api.post<IResStatus>(
-  `blockchain/pushtx`,
+  `/pushtx`,
   {hex}
 )
