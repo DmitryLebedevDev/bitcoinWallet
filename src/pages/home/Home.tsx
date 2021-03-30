@@ -13,13 +13,12 @@ const useStyles = makeStyles({})
 
 export const Home = () => {
   const user = useStore($user);
-  (window as any).user = user;
   const history = useHistory();
 
   const classes = useStyles();
   return (
     <div className="container">
-      <Balance value={12}/>
+      <Balance value={user.balance}/>
       <UserAddress address={user.address}/>
       <Switch>
         <Route path="/viewKeys" render={() => (
