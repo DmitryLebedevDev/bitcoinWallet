@@ -20,14 +20,14 @@ export const getAddressBalanceReq = (address: string) => api.get<IaddressInfoRes
     }
   }
 }) => +balance)
-export const getUnspentTransactionsReq = (address: string) => axios.get<IunspentTransactionsRes>(
+export const getUnspentTransactionsReq = (address: string) => api.get<IunspentTransactionsRes>(
   `address/${address}/unspent`
 ).then<IunspentTransaction[]>(({
   data: {
     unspent
   }
 }) => unspent)
-export const sendTransactionReq = (hex: string) => axios.post<IResStatus>(
+export const sendTransactionReq = (hex: string) => api.post<IResStatus>(
   `blockchain/pushtx`,
   {hex}
 )
