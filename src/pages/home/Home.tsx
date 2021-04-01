@@ -7,6 +7,7 @@ import { Balance } from './Balance/Balance'
 import { UserAddress } from './UserAddress/UserAddress'
 import { SendBitcoinForm } from '../../dialogs/SendBitcoinForm'
 import { ViewUserPrivateKey } from '../../dialogs/ViewUserPrivateKey'
+import { TransactionsTable } from './TransactionsTable/TransactionsTable'
 
 export const Home = () => {
   const user = useStore($user)
@@ -16,6 +17,7 @@ export const Home = () => {
     <div className="container">
       <Balance value={user.balance}/>
       <UserAddress address={user.address}/>
+      <TransactionsTable />
       <Switch>
         <Route path="/viewKeys" render={() => (
           <ViewUserPrivateKey
