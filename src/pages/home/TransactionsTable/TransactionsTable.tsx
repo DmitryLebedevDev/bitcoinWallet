@@ -30,10 +30,13 @@ export const TransactionsTable:FC = () => {
           <TableHead>
             <TableRow>
               <TableCell>
-                test
+                From address
               </TableCell>
               <TableCell>
-                test2
+                Value
+              </TableCell>
+              <TableCell>
+                Status
               </TableCell>
             </TableRow>
           </TableHead>
@@ -50,6 +53,5 @@ export const TransactionsTable:FC = () => {
         </Table>
       </TableContainer>
     </div>
-    
   )
 }
