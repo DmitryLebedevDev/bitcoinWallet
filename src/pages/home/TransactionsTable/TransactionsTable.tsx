@@ -10,6 +10,7 @@ import {
   TableRow,
   Typography
 } from '@material-ui/core'
+import { Panding } from './Statuses/Panding';
 
 const useStyles = makeStyles({
   tableBlock: {
@@ -47,6 +48,9 @@ export const TransactionsTable:FC = () => {
               </TableCell>
               <TableCell>
                 2
+              </TableCell>
+              <TableCell>
+                <Panding/>
               </TableCell>
             </TableRow>
           </TableBody>
