@@ -1,22 +1,21 @@
-import { makeStyles } from '@material-ui/core'
 import React from 'react'
+import { makeStyles } from '@material-ui/core'
+
+import { commonStylesObj } from './commonStyles'
 
 const useStyles = makeStyles({
-  status: {
-    display: 'inline-block',
-    fontWeight: 900,
-    padding: '4px',
+  ...commonStylesObj,
+  yellow: {
     color: '#8b7400',
-    border: '2px solid #8b7400',
-    borderRadius: '2px',
+    borderColor: '#8b7400',
   }
 })
 
 export const Panding = () => {
 
-  const classes = useStyles();
+  const classes = useStyles()
   return (
-    <div className={classes.status}>
+    <div className={`${classes.status} ${classes.yellow}`}>
       Panding
     </div>
   )
