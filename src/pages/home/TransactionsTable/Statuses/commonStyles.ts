@@ -1,5 +1,4 @@
 import { StyleRules } from '@material-ui/core'
-import { Styles } from '@material-ui/styles/withStyles'
 
 export const commonStylesObj: StyleRules<"status"> = {
   status: {
