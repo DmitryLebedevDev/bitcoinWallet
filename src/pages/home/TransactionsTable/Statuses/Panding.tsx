@@ -6,8 +6,9 @@ import { commonStylesObj } from './commonStyles'
 const useStyles = makeStyles({
   ...commonStylesObj,
   yellow: {
-    color: '#8b7400',
-    borderColor: '#8b7400',
+    color: '#d48806',
+    background: '#fffbe6',
+    borderColor: '#ffe58f'
   }
 })
 
