@@ -12,7 +12,7 @@ const useStyles = makeStyles({
   }
 })
 
-export const Panding = () => {
+export const PandingTag = () => {
 
   const classes = useStyles()
   return (
