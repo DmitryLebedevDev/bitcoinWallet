@@ -36,12 +36,7 @@ sendBitcoinsFx.use(async ({from, to, value, balance, fee, bitcoinInfo}) => {
     new bitcoinjs.TransactionBuilder(bitcoinjs.networks.testnet)
   )
 
-  txb.addOutput(
-    bitcoinjs.script.fromASM(
-      `OP_DUP OP_HASH160 1111111111111111111111111111111111111111 OP_EQUALVERIFY OP_CHECKSIG`
-    )
-    ,valueSat
-  )
+  txb.addOutput(to,valueSat)
   txb.addOutput(from, finalBalanceSat)
 
   unspentTransactions.forEach((_, index) => {
