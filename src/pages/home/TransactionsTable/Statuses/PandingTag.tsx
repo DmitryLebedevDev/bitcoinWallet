@@ -17,7 +17,7 @@ export const PandingTag = () => {
   const classes = useStyles()
   return (
     <div className={`${classes.status} ${classes.yellow}`}>
-      Panding
+      Pending
     </div>
   )
 }
