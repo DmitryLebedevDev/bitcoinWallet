@@ -10,7 +10,7 @@ import {
   TableRow,
   Typography
 } from '@material-ui/core'
-import { PandingTag } from './Statuses/PandingTag';
+import { PendingTag } from './Statuses/PendingTag';
 import { SuccessTag } from './Statuses/SuccessTag';
 
 const useStyles = makeStyles({
@@ -51,7 +51,7 @@ export const TransactionsTable:FC = () => {
                 2
               </TableCell>
               <TableCell>
-                <PandingTag/>
+                <PendingTag/>
               </TableCell>
             </TableRow>
             <TableRow>
