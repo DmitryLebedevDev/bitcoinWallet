@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core'
 import { PendingTag } from './Statuses/PendingTag';
 import { SuccessTag } from './Statuses/SuccessTag';
+import { ErrorTag } from "./Statuses/ErrorTag";
 
 const useStyles = makeStyles({
   tableBlock: {
@@ -63,6 +64,17 @@ export const TransactionsTable:FC = () => {
               </TableCell>
               <TableCell>
                 <SuccessTag/>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                1
+              </TableCell>
+              <TableCell>
+                2
+              </TableCell>
+              <TableCell>
+                <ErrorTag/>
               </TableCell>
             </TableRow>
           </TableBody>
