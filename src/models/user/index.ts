@@ -1,4 +1,4 @@
-import { attach, createEffect, createStore } from "effector"
+import { attach, createEffect, createEvent, createStore } from "effector";
 
 import { initUser } from "./initUser"
 import { IsendBitconFxData } from "./types"
@@ -6,6 +6,9 @@ import { IsendBitconFxData } from "./types"
 export const $user = createStore(
   initUser()
 )
+
+export const setUserTransactionsEvent = createEvent();
+export const setUserBalanceEvent = createEvent();
 
 export const fetchAddressBalanceFx = createEffect<string, number>()
 export const updateUserBalanceFx = attach({
