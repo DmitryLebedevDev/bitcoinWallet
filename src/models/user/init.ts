@@ -44,8 +44,8 @@ sendBitcoinsFx.use(async ({from, to, value, balance, fee, bitcoinInfo}) => {
   })
 
   console.log(txb.build().toHex());
-  const result = await sendTransactionReq(txb.build().toHex())
-  if(!result) throw new Error('not created transaction')
+  //const result = await sendTransactionReq(txb.build().toHex())
+  //if(!result) throw new Error('not created transaction')
 
   return satToBitcoin(finalBalanceSat)
 })

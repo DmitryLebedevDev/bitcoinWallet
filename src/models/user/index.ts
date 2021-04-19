@@ -18,6 +18,14 @@ export const updateUserBalanceFx = attach({
     return address
   }
 })
+export const fetchWalletDataFx = createEffect<string, void>();
+export const updateUserWalletDataFx = attach({
+  source: $user,
+  effect: fetchWalletDataFx,
+  mapParams: (_, {address}) => {
+    return address
+  }
+})
 
 export const sendBitcoinsFx = createEffect<IsendBitconFxData, number>()
 export const sendUserBitcoinsFx = attach({
