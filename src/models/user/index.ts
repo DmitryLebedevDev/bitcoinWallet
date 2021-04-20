@@ -7,8 +7,8 @@ export const $user = createStore(
   initUser()
 )
 
-export const setUserTransactionsEvent = createEvent();
-export const setUserBalanceEvent = createEvent();
+export const setUserTransactionsEvent = createEvent()
+export const setUserBalanceEvent = createEvent()
 
 export const fetchAddressBalanceFx = createEffect<string, number>()
 export const updateUserBalanceFx = attach({
@@ -18,10 +18,10 @@ export const updateUserBalanceFx = attach({
     return address
   }
 })
-export const fetchWalletDataFx = createEffect<string, void>();
-export const updateUserWalletDataFx = attach({
+export const fetchUserWalletDataAndSetFx = createEffect<string, void>()
+export const initUserWalletDataFx = attach({
   source: $user,
-  effect: fetchWalletDataFx,
+  effect: fetchUserWalletDataAndSetFx,
   mapParams: (_, {address}) => {
     return address
   }
