@@ -2,20 +2,23 @@ import * as bitcoinjs from 'bitcoinjs-lib'
 
 import {
   $user,
-  fetchAddressBalanceFx,
+  fetchAddressBalanceFx, fetchUserWalletDataAndSetFx,
   sendBitcoinsFx,
   sendUserBitcoinsFx,
   updateUserBalanceFx
 } from "."
 import {
   getAddressBalanceReq,
-  getUnspentTransactionsReq,
+  getUnspentTransactionsReq, getWalletDataReq,
   sendTransactionReq
 } from "../../api/api"
 import { bitcoinToSat } from '../../common/bitcoinToSat'
 import { satToBitcoin } from '../../common/satToBitcoin'
 
 fetchAddressBalanceFx.use(getAddressBalanceReq)
+fetchUserWalletDataAndSetFx.use((address) => {
+  const userWalletData = getWalletDataReq(address);
+})
 sendBitcoinsFx.use(async ({from, to, value, balance, fee, bitcoinInfo}) => {
   const unspentTransactions = await getUnspentTransactionsReq(from)
   if(!unspentTransactions.length) throw new Error(

@@ -11,7 +11,7 @@ const api = axios.create({
   baseURL: 'https://testnet-api.smartbit.com.au/v1/blockchain/'
 })
 
-export const getAddressInfoReq
+export const getWalletDataReq
   = (address: string) => api.get<IaddressInfoRes>(`address/${address}`)
 export const getAddressBalanceReq = (address: string) => api.get<IaddressInfoRes>(
   `address/${address}`
