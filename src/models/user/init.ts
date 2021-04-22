@@ -4,7 +4,7 @@ import {
   $user,
   fetchAddressBalanceFx, fetchUserWalletDataAndSetFx,
   sendBitcoinsFx,
-  sendUserBitcoinsFx,
+  sendUserBitcoinsFx, setUserBalanceEvent, setUserTransactionsEvent,
   updateUserBalanceFx
 } from "."
 import {
@@ -16,8 +16,10 @@ import { bitcoinToSat } from '../../common/bitcoinToSat'
 import { satToBitcoin } from '../../common/satToBitcoin'
 
 fetchAddressBalanceFx.use(getAddressBalanceReq)
-fetchUserWalletDataAndSetFx.use((address) => {
-  const userWalletData = getWalletDataReq(address);
+fetchUserWalletDataAndSetFx.use(async (address) => {
+  const userWalletData = await getWalletDataReq(address);
+  setUserBalanceEvent(+userWalletData.total.balance);
+  setUserTransactionsEvent(userWalletData.transactions);
 })
 sendBitcoinsFx.use(async ({from, to, value, balance, fee, bitcoinInfo}) => {
   const unspentTransactions = await getUnspentTransactionsReq(from)

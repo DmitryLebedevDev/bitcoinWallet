@@ -13,6 +13,7 @@ const api = axios.create({
 
 export const getWalletDataReq
   = (address: string) => api.get<IaddressInfoRes>(`address/${address}`)
+    .then(({data: {address}}) => address)
 export const getAddressBalanceReq = (address: string) => api.get<IaddressInfoRes>(
   `address/${address}`
 ).then(({

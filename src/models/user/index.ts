@@ -2,13 +2,14 @@ import { attach, createEffect, createEvent, createStore } from "effector";
 
 import { initUser } from "./initUser"
 import { IsendBitconFxData } from "./types"
+import {Itransaction} from "../../api/api.interface";
 
 export const $user = createStore(
   initUser()
 )
 
-export const setUserTransactionsEvent = createEvent()
-export const setUserBalanceEvent = createEvent()
+export const setUserTransactionsEvent = createEvent<Itransaction[]>()
+export const setUserBalanceEvent = createEvent<number>()
 
 export const fetchAddressBalanceFx = createEffect<string, number>()
 export const updateUserBalanceFx = attach({
