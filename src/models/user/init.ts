@@ -55,10 +55,19 @@ sendBitcoinsFx.use(async ({from, to, value, balance, fee, bitcoinInfo}) => {
   return satToBitcoin(finalBalanceSat)
 })
 
-$user.on([
+$user
+.on([
   updateUserBalanceFx.doneData,
   sendUserBitcoinsFx.doneData
 ], (userInfo, newBalance) => ({
   ...userInfo,
   balance: newBalance
 }))
+.on(
+  setUserBalanceEvent,
+  (user, balance) => ({...user, balance})
+)
+.on(
+  setUserTransactionsEvent,
+  (user, transactions) => ({...user, })
+)

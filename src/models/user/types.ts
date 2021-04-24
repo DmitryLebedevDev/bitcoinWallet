@@ -1,4 +1,5 @@
 import { ECPairInterface } from "bitcoinjs-lib"
+import { Itransaction } from "../../api/api.interface";
 
 export interface IsendBitconFxData {
   value: number,
@@ -13,5 +14,6 @@ export interface Iuser {
   bitcoinInfo: ECPairInterface,
   privateKey: string,
   address: string,
-  balance: number
+  balance: number,
+  transactions: Itransaction[]
 }

@@ -18,6 +18,7 @@ export const generateUserData = (wif: string | null):Iuser => {
     bitcoinInfo: randomBitcoinData,
     privateKey: randomBitcoinData.toWIF(),
     address: address as string,
-    balance: NaN
+    balance: NaN,
+    transactions: []
   })
 }
