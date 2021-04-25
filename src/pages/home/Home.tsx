@@ -16,7 +16,7 @@ export const Home = () => {
     <div className="container">
       <Balance value={user.balance}/>
       <UserAddress address={user.address}/>
-      <TransactionsTable />
+      <TransactionsTable transactions={user.transactions}/>
       <Switch>
         <Route path="/viewKeys" render={() => (
           <ViewUserPrivateKey

@@ -13,6 +13,8 @@ import {
 import { PendingTag } from './Statuses/PendingTag';
 import { SuccessTag } from './Statuses/SuccessTag';
 import { ErrorTag } from "./Statuses/ErrorTag";
+import {Transaction} from "bitcoinjs-lib";
+import {Itransaction} from "../../../api/api.interface";
 
 const useStyles = makeStyles({
   tableBlock: {
@@ -20,7 +22,10 @@ const useStyles = makeStyles({
   }
 })
 
-export const TransactionsTable:FC = () => {
+interface Iprops {
+  transactions: Itransaction[]
+}
+export const TransactionsTable:FC<Iprops> = ({transactions}) => {
 
   const classes = useStyles();
   return (
@@ -44,39 +49,19 @@ export const TransactionsTable:FC = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>
-                1
-              </TableCell>
-              <TableCell>
-                2
-              </TableCell>
-              <TableCell>
-                <PendingTag/>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                1
-              </TableCell>
-              <TableCell>
-                2
-              </TableCell>
-              <TableCell>
-                <SuccessTag/>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                1
-              </TableCell>
-              <TableCell>
-                2
-              </TableCell>
-              <TableCell>
-                <ErrorTag/>
-              </TableCell>
-            </TableRow>
+            {transactions.map(({txid, hash}) => (
+              <TableRow key={txid}>
+                <TableCell>
+                  {txid}
+                </TableCell>
+                <TableCell>
+                  {hash}
+                </TableCell>
+                <TableCell>
+                  <SuccessTag/>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
