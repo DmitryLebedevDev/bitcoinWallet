@@ -26,8 +26,11 @@ interface Iprops {
   transactions: Itransaction[]
 }
 export const TransactionsTable:FC<Iprops> = ({transactions}) => {
-
   const classes = useStyles();
+
+  if(!transactions.length) {
+    return <></>
+  }
   return (
     <div className={classes.tableBlock}>
       <Typography variant="h5" gutterBottom>

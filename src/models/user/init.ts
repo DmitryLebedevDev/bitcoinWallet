@@ -69,5 +69,5 @@ $user
 )
 .on(
   setUserTransactionsEvent,
-  (user, transactions) => ({...user, })
+  (user, transactions) => ({...user, transactions})
 )

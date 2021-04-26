@@ -23,7 +23,7 @@ export const fetchUserWalletDataAndSetFx = createEffect<string, void>()
 export const initUserWalletDataFx = attach({
   source: $user,
   effect: fetchUserWalletDataAndSetFx,
-  mapParams: (_, {address}) => {
+  mapParams: (_: any, {address}) => {
     return address
   }
 })
