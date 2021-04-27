@@ -1,8 +1,8 @@
-import { attach, createEffect, createEvent, createStore } from "effector";
+import { attach, createEffect, createEvent, createStore } from 'effector'
 
-import { initUser } from "./initUser"
-import { IsendBitconFxData } from "./types"
-import {Itransaction} from "../../api/api.interface";
+import { initUser } from './initUser'
+import { IsendBitconFxData } from './types'
+import {Itransaction} from '../../api/api.interface'
 
 export const $user = createStore(
   initUser()
@@ -33,7 +33,7 @@ export const sendUserBitcoinsFx = attach({
   effect: sendBitcoinsFx,
   source: $user,
   mapParams: (
-    {value, fee, to}: Pick<IsendBitconFxData, "value" | "fee" | "to">,
+    {value, fee, to}: Pick<IsendBitconFxData, 'value' | 'fee' | 'to'>,
     user
   ) => {
     return {

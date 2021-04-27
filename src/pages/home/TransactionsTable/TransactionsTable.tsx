@@ -10,11 +10,11 @@ import {
   TableRow,
   Typography
 } from '@material-ui/core'
-import { PendingTag } from './Statuses/PendingTag';
-import { SuccessTag } from './Statuses/SuccessTag';
-import { ErrorTag } from "./Statuses/ErrorTag";
-import {Transaction} from "bitcoinjs-lib";
-import {Itransaction} from "../../../api/api.interface";
+import { PendingTag } from './Statuses/PendingTag'
+import { SuccessTag } from './Statuses/SuccessTag'
+import { ErrorTag } from "./Statuses/ErrorTag"
+import {Transaction} from "bitcoinjs-lib"
+import {Itransaction} from "../../../api/api.interface"
 
 const useStyles = makeStyles({
   tableBlock: {
@@ -26,7 +26,7 @@ interface Iprops {
   transactions: Itransaction[]
 }
 export const TransactionsTable:FC<Iprops> = ({transactions}) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   if(!transactions.length) {
     return <></>
