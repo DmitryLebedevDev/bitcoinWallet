@@ -41,10 +41,16 @@ export const TransactionsTable:FC<Iprops> = ({transactions}) => {
           <TableHead>
             <TableRow>
               <TableCell>
-                From address
+                Txid
               </TableCell>
               <TableCell>
-                Value
+                Hash
+              </TableCell>
+              <TableCell>
+                Fee
+              </TableCell>
+              <TableCell>
+                Confirmations
               </TableCell>
               <TableCell>
                 Status
@@ -52,13 +58,19 @@ export const TransactionsTable:FC<Iprops> = ({transactions}) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {transactions.map(({txid, hash}) => (
+            {transactions.map(({txid, hash, fee, confirmations}) => (
               <TableRow key={txid}>
                 <TableCell>
                   {txid}
                 </TableCell>
                 <TableCell>
                   {hash}
+                </TableCell>
+                <TableCell>
+                  {fee}
+                </TableCell>
+                <TableCell>
+                  {confirmations}
                 </TableCell>
                 <TableCell>
                   <SuccessTag/>

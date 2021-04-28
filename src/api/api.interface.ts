@@ -1,6 +1,8 @@
 export interface Itransaction {
   hash: string,
   txid: string,
+  confirmations: number,
+  fee: string
   outputs: [{
     addresses: [string],
   }, {
