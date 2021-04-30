@@ -10,14 +10,8 @@ import {
   TableRow,
   Typography
 } from '@material-ui/core'
-import { PendingTag } from './Statuses/PendingTag'
-import { SuccessTag } from './Statuses/SuccessTag'
-import { ErrorTag } from "./Statuses/ErrorTag"
-import {Transaction} from "bitcoinjs-lib"
-import {Itransaction} from "../../../api/api.interface"
-import { IconButton } from '@material-ui/core'
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import {Itransaction} from '../../../api/api.interface'
+import {Transaction} from './Transaction/Transaction'
 
 const useStyles = makeStyles({
   tableBlock: {
@@ -62,31 +56,9 @@ export const TransactionsTable:FC<Iprops> = ({transactions}) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {transactions.map(({txid, hash, fee, confirmations}) => (
-              <TableRow key={txid}>
-                <TableCell>
-                  <IconButton aria-label="expand row" size="small">
-                    <KeyboardArrowUpIcon />
-                    <KeyboardArrowDownIcon/>
-                  </IconButton>
-                </TableCell>
-                <TableCell>
-                  {txid}
-                </TableCell>
-                <TableCell>
-                  {hash}
-                </TableCell>
-                <TableCell>
-                  {fee}
-                </TableCell>
-                <TableCell>
-                  {confirmations}
-                </TableCell>
-                <TableCell>
-                  <SuccessTag/>
-                </TableCell>
-              </TableRow>
-            ))}
+            {transactions.map(
+              (transactionData) => <Transaction {...transactionData}/>)
+            }
           </TableBody>
         </Table>
       </TableContainer>
