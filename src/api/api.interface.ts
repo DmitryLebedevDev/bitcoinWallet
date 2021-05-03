@@ -3,6 +3,8 @@ export interface Itransaction {
   txid: string,
   confirmations: number,
   fee: string
+  input_amount: string,
+  output_amount: string,
   outputs: [{
     addresses: [string],
   }, {
