@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 })
 
 export const Transaction:FC<Itransaction> = (
-  {txid, hash, fee, confirmations, outputs}
+  {txid, input_amount, output_amount, fee, confirmations, outputs}
 ) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClickOpenBtn = useCallback(
@@ -38,7 +38,10 @@ export const Transaction:FC<Itransaction> = (
           {txid}
         </TableCell>
         <TableCell>
-          {hash}
+          {input_amount}
+        </TableCell>
+        <TableCell>
+          {output_amount}
         </TableCell>
         <TableCell>
           {fee}

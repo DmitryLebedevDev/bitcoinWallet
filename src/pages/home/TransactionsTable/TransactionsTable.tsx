@@ -42,7 +42,10 @@ export const TransactionsTable:FC<Iprops> = ({transactions}) => {
                 Txid
               </TableCell>
               <TableCell>
-                Hash
+                Input
+              </TableCell>
+              <TableCell>
+                Output
               </TableCell>
               <TableCell>
                 Fee
