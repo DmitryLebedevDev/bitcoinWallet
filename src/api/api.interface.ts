@@ -5,11 +5,18 @@ export interface Itransaction {
   fee: string
   input_amount: string,
   output_amount: string,
-  outputs: [{
-    addresses: [string],
-  }, {
-    addresses: [string],
-  }],
+  outputs: ItransactionOutput[]
+}
+export interface ItransactionOutput {
+  addresses: string[]
+  n: number,
+  script_pub_key: {
+    asm: string,
+    hex: string
+  },
+  type: string
+  value: string
+  value_int: number
 }
 
 export interface IunspentTransaction {
