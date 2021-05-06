@@ -5,6 +5,7 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import { SuccessTag } from "../Statuses/SuccessTag"
 import Collapse from '@material-ui/core/Collapse'
+import {TransactionOutputTable} from "./TransactionOutputTable";
 
 const useStyles = makeStyles({
   utxoTableWrap: {
@@ -55,16 +56,7 @@ export const Transaction:FC<Itransaction> = (
       </TableRow>
       <TableCell className={classes.utxoTableWrap}>
         <Collapse in={isOpen}>
-          <Table size="small">
-            <TableHead>
-              <TableCell>Address</TableCell>
-            </TableHead>
-            <TableBody>
-              {outputs.map(({addresses}, index) => {
-                return <TableCell key={index}>{addresses.toString()}</TableCell>
-              })}
-            </TableBody>
-          </Table>
+          <TransactionOutputTable outputs={outputs}/>
         </Collapse>
       </TableCell>
     </>
