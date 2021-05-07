@@ -7,6 +7,19 @@ export interface Itransaction {
   output_amount: string,
   outputs: ItransactionOutput[]
 }
+export interface ItransactionInput {
+  addresses: string[]
+  script_sig: {
+    asm: string,
+    hex: string
+  }
+  sequence: number
+  txid: string
+  type: string
+  value: string
+  value_int: number
+  vout: number
+}
 export interface ItransactionOutput {
   addresses: string[]
   n: number,
