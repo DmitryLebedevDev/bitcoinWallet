@@ -5,6 +5,7 @@ export interface Itransaction {
   fee: string
   input_amount: string,
   output_amount: string,
+  inputs: ItransactionInput[]
   outputs: ItransactionOutput[]
 }
 export interface ItransactionInput {

@@ -1,11 +1,12 @@
 import React, { FC, useCallback, useState } from "react"
 import { Itransaction } from '../../../../api/api.interface'
-import {IconButton, makeStyles, Table, TableBody, TableCell, TableHead, TableRow} from "@material-ui/core";
+import {Box, IconButton, makeStyles, Table, TableBody, TableCell, TableHead, TableRow} from "@material-ui/core";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import { SuccessTag } from "../Statuses/SuccessTag"
 import Collapse from '@material-ui/core/Collapse'
 import {TransactionOutputTable} from "./TransactionOutputTable";
+import {TransactionInputTable} from "./TransactionInputTable";
 
 const useStyles = makeStyles({
   utxoTableWrap: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
 })
 
 export const Transaction:FC<Itransaction> = (
-  {txid, input_amount, output_amount, fee, confirmations, outputs}
+  {txid, input_amount, output_amount, fee, confirmations, outputs, inputs}
 ) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClickOpenBtn = useCallback(
@@ -54,9 +55,12 @@ export const Transaction:FC<Itransaction> = (
           <SuccessTag/>
         </TableCell>
       </TableRow>
-      <TableCell className={classes.utxoTableWrap}>
+      <TableCell className={classes.utxoTableWrap} colSpan={7}>
         <Collapse in={isOpen}>
-          <TransactionOutputTable outputs={outputs}/>
+          <Box margin={1}>
+            <TransactionInputTable inputs={inputs}/>
+            <TransactionOutputTable outputs={outputs}/>
+          </Box>
         </Collapse>
       </TableCell>
     </>
