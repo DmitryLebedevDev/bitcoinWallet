@@ -17,9 +17,9 @@ export const TransactionOutputTable:FC<Iprops> = ({outputs}) => {
           <TableCell>Address</TableCell>
         </TableHead>
         <TableBody>
-          {outputs.map(({addresses}, index) => {
-            return <TableCell key={index}>{addresses.join(',')}</TableCell>
-          })}
+          {outputs.map(({addresses}, index) => (
+            <TableCell key={index}>{addresses.join(',')}</TableCell>
+          ))}
         </TableBody>
       </Table>
     </>

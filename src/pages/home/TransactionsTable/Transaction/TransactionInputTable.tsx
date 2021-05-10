@@ -23,7 +23,7 @@ export const TransactionInputTable:FC<Iprops> = ({inputs}) => {
         <TableBody>
           {inputs.map(({addresses, txid, value, script_sig: {asm}}, index) => (
             <TableRow key={index}>
-              <TableCell>{addresses.join(',')}</TableCell>
+              <TableCell colSpan={1}>{addresses.join(',')}</TableCell>
               <TableCell>{txid}</TableCell>
               <TableCell>{value}</TableCell>
               <TableCell>{asm}</TableCell>

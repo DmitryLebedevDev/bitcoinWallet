@@ -13,6 +13,9 @@ const useStyles = makeStyles({
     paddingBottom: 0,
     paddingTop: 0,
     border: "none"
+  },
+  minWidth: {
+    width: 'min-content'
   }
 })
 
@@ -56,7 +59,7 @@ export const Transaction:FC<Itransaction> = (
         </TableCell>
       </TableRow>
       <TableCell className={classes.utxoTableWrap} colSpan={7}>
-        <Collapse in={isOpen}>
+        <Collapse in={isOpen} className={classes.minWidth}>
           <Box margin={1}>
             <TransactionInputTable inputs={inputs}/>
             <TransactionOutputTable outputs={outputs}/>
