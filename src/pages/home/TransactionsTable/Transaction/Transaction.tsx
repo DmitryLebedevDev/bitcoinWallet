@@ -1,12 +1,18 @@
-import React, { FC, useCallback, useState } from "react"
-import { Itransaction } from '../../../../api/api.interface'
-import {Box, IconButton, makeStyles, Table, TableBody, TableCell, TableHead, TableRow} from "@material-ui/core";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
-import { SuccessTag } from "../Statuses/SuccessTag"
+import React, {FC, useCallback, useState} from 'react'
+import {Itransaction} from '../../../../api/api.interface'
+import {
+  Box,
+  IconButton,
+  makeStyles,
+  TableCell,
+  TableRow
+} from '@material-ui/core'
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
+import {SuccessTag} from '../Statuses/SuccessTag'
 import Collapse from '@material-ui/core/Collapse'
-import {TransactionOutputTable} from "./TransactionOutputTable";
-import {TransactionInputTable} from "./TransactionInputTable";
+import {TransactionOutputTable} from './TransactionOutputTable'
+import {TransactionInputTable} from './TransactionInputTable'
 
 const useStyles = makeStyles({
   utxoTableWrap: {

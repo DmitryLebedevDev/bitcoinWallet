@@ -1,6 +1,13 @@
-import {ItransactionInput} from "../../../../api/api.interface";
-import React, {FC} from "react";
-import {Table, TableBody, TableCell, TableHead, TableRow, Typography} from "@material-ui/core";
+import React, {FC} from 'react'
+import {ItransactionInput} from '../../../../api/api.interface'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Typography
+} from '@material-ui/core'
 
 interface Iprops {
   inputs: ItransactionInput[]

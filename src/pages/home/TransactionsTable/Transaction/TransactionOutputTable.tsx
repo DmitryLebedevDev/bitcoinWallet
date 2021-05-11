@@ -1,6 +1,6 @@
-import React, {FC} from "react";
-import {Table, TableBody, TableCell, TableHead, Typography} from "@material-ui/core";
-import {ItransactionOutput} from "../../../../api/api.interface";
+import React, {FC} from 'react'
+import {Table, TableBody, TableCell, TableHead, Typography} from '@material-ui/core'
+import {ItransactionOutput} from '../../../../api/api.interface'
 
 interface Iprops {
   outputs: ItransactionOutput[]
