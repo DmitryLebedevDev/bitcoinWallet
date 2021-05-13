@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import {initUserWalletDataFx} from "./models/user";
+import {initUserWalletDataFx} from'./models/user';
 import { Routes } from './routes'
 import './models/init'
 import './App.css'

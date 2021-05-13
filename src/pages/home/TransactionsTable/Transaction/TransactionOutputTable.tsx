@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, memo} from 'react'
 import {
   Table,
   TableBody,
@@ -12,7 +12,7 @@ interface Iprops {
   outputs: ItransactionOutput[]
 }
 
-export const TransactionOutputTable:FC<Iprops> = ({outputs}) => {
+export const TransactionOutputTable:FC<Iprops> = memo(({outputs}) => {
   return (
     <>
       <Typography variant="h6" gutterBottom component="div">
@@ -46,4 +46,4 @@ export const TransactionOutputTable:FC<Iprops> = ({outputs}) => {
       </Table>
     </>
   )
-}
+})

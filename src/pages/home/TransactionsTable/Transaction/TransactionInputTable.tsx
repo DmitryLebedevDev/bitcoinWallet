@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, memo} from 'react'
 import {ItransactionInput} from '../../../../api/api.interface'
 import {
   Table,
@@ -13,7 +13,7 @@ interface Iprops {
   inputs: ItransactionInput[]
 }
 
-export const TransactionInputTable:FC<Iprops> = ({inputs}) => {
+export const TransactionInputTable:FC<Iprops> = memo(({inputs}) => {
   console.log(inputs)
   return (
     <>
@@ -40,4 +40,4 @@ export const TransactionInputTable:FC<Iprops> = ({inputs}) => {
       </Table>
     </>
   )
-}
+})

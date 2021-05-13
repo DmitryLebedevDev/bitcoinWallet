@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useState} from 'react'
+import React, {FC, memo, useCallback, useState} from 'react'
 import {Itransaction} from '../../../../api/api.interface'
 import {
   Box,
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   }
 })
 
-export const Transaction:FC<Itransaction> = (
+export const Transaction:FC<Itransaction> = memo((
   {txid, input_amount, output_amount, fee, confirmations, outputs, inputs}
 ) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,4 +74,4 @@ export const Transaction:FC<Itransaction> = (
       </TableCell>
     </>
   )
-}
+})
