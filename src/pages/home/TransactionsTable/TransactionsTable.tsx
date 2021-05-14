@@ -14,8 +14,11 @@ import {Itransaction} from '../../../api/api.interface'
 import {Transaction} from './Transaction/Transaction'
 
 const useStyles = makeStyles({
-  tableBlock: {
+  transactionsTableBlock: {
     marginTop: '15px'
+  },
+  tableContainer: {
+    maxHeight: 'calc(100vh - 420px)'
   }
 })
 
@@ -29,12 +32,12 @@ export const TransactionsTable:FC<Iprops> = ({transactions}) => {
     return <></>
   }
   return (
-    <div className={classes.tableBlock}>
+    <div className={classes.transactionsTableBlock}>
       <Typography variant="h5" gutterBottom>
         Transactions list
       </Typography>
-      <TableContainer component={Paper}>
-        <Table size="small">
+      <TableContainer className={classes.tableContainer} component={Paper}>
+        <Table stickyHeader size="small">
           <TableHead>
             <TableRow>
               <TableCell/>
