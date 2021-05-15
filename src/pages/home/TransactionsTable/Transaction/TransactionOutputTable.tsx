@@ -15,10 +15,10 @@ interface Iprops {
 export const TransactionOutputTable:FC<Iprops> = memo(({outputs}) => {
   return (
     <>
-      <Typography variant="h6" gutterBottom component="div">
+      <Typography variant='h6' gutterBottom component='div'>
         Outputs
       </Typography>
-      <Table size="small">
+      <Table size='small'>
         <TableHead>
           <TableCell>Address</TableCell>
           <TableCell>Value</TableCell>

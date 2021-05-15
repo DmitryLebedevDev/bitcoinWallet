@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   utxoTableWrap: {
     paddingBottom: 0,
     paddingTop: 0,
-    border: "none"
+    border: 'none'
   },
   minWidth: {
     width: 'min-content'
@@ -40,7 +40,7 @@ export const Transaction:FC<Itransaction> = memo((
       <TableRow key={txid}>
         <TableCell>
           <IconButton onClick={handleClickOpenBtn}
-                      size="small"
+                      size='small'
           >
             {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon/>}
           </IconButton>

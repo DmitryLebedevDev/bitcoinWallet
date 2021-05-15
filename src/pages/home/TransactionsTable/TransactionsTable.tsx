@@ -33,11 +33,11 @@ export const TransactionsTable:FC<Iprops> = ({transactions}) => {
   }
   return (
     <div className={classes.transactionsTableBlock}>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant='h5' gutterBottom>
         Transactions list
       </Typography>
       <TableContainer className={classes.tableContainer} component={Paper}>
-        <Table stickyHeader size="small">
+        <Table stickyHeader size='small'>
           <TableHead>
             <TableRow>
               <TableCell/>

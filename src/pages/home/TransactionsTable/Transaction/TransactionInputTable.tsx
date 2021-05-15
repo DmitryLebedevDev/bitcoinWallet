@@ -14,13 +14,12 @@ interface Iprops {
 }
 
 export const TransactionInputTable:FC<Iprops> = memo(({inputs}) => {
-  console.log(inputs)
   return (
     <>
-      <Typography variant="h6" gutterBottom component="div">
+      <Typography variant='h6' gutterBottom component='div'>
         Inputs
       </Typography>
-      <Table size="small">
+      <Table size='small'>
         <TableHead>
           <TableCell>Address</TableCell>
           <TableCell>Txid</TableCell>
