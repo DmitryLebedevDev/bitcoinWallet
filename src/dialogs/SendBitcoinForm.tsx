@@ -52,20 +52,20 @@ export const SendBitcoinForm:FC<Iprops> = (
       <DialogContent>
         <TextField
           inputRef={addressRef}
-          helperText="send to address"
+          helperText='send to address'
           fullWidth
         />
         <TextField
           inputRef={valueRef}
-          type="number"
-          helperText="value"
+          type='number'
+          helperText='value'
           inputProps={{min: 0, max: 10, step: 0.01}}
           fullWidth
         />
         <TextField
           inputRef={feeRef}
-          type="number"
-          helperText="reword for miner"
+          type='number'
+          helperText='reword for miner'
           inputProps={{min: 0, max: 10, step: 0.001}}
           fullWidth
         />
@@ -73,13 +73,13 @@ export const SendBitcoinForm:FC<Iprops> = (
       <DialogActions>
         <Button
           onClick={handleClose}
-          color="primary"
+          color='primary'
         >
           Cancel
         </Button>
         <Button
           onClick={handleSend}
-          color="primary"
+          color='primary'
           endIcon={<Send/>}
         >
           Send

@@ -1,6 +1,6 @@
 import * as bitcoin from 'bitcoinjs-lib'
 
-import { Iuser } from "./types"
+import { Iuser } from './types'
 
 export const generateUserData = (wif: string | null):Iuser => {
   const randomBitcoinData = wif ?

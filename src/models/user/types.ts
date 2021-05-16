@@ -1,5 +1,5 @@
-import { ECPairInterface } from "bitcoinjs-lib"
-import { Itransaction } from "../../api/api.interface";
+import { ECPairInterface } from 'bitcoinjs-lib'
+import { Itransaction } from '../../api/api.interface';
 
 export interface IsendBitconFxData {
   value: number,

@@ -75,20 +75,20 @@ export const Balance:FC<Iprops> = ({value}) => {
           {`${value}₿`}
         </div>
         <div className={classes.infoBlock}>
-          <Link to="/viewKeys">
+          <Link to='/viewKeys'>
             <IconButton
               className={classes.iconBtn}
-              size="medium"
-              component="span"
+              size='medium'
+              component='span'
             >
               <VpnKeyIcon className={classes.rotate90deg}/>
             </IconButton>
           </Link>
-          <Link to="/sendBitcoins">
+          <Link to='/sendBitcoins'>
             <IconButton
               className={classes.iconBtn}
-              size="medium"
-              component="span"
+              size='medium'
+              component='span'
             >
               <Send />
             </IconButton>

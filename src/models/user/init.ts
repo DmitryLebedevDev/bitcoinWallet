@@ -6,12 +6,12 @@ import {
   sendBitcoinsFx,
   sendUserBitcoinsFx, setUserBalanceEvent, setUserTransactionsEvent,
   updateUserBalanceFx
-} from "."
+} from '.'
 import {
   getAddressBalanceReq,
   getUnspentTransactionsReq, getWalletDataReq,
   sendTransactionReq
-} from "../../api/api"
+} from '../../api/api'
 import { bitcoinToSat } from '../../common/bitcoinToSat'
 import { satToBitcoin } from '../../common/satToBitcoin'
 

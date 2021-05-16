@@ -35,7 +35,7 @@ export const ViewUserPrivateKey:FC<Iprops> =
       <DialogActions>
         <Button
           onClick={handleClose}
-          color="primary"
+          color='primary'
         >
           Cancel
         </Button>

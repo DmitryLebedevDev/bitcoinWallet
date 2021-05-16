@@ -1,4 +1,4 @@
-import { generateUserData } from "./generateUserData"
+import { generateUserData } from './generateUserData'
 
 export const initUser = () => {
   const wif = localStorage.getItem('wif')
