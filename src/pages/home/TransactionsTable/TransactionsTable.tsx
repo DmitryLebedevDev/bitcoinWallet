@@ -63,7 +63,7 @@ export const TransactionsTable:FC<Iprops> = ({transactions}) => {
           </TableHead>
           <TableBody>
             {transactions.map(
-              (transactionData) => <Transaction {...transactionData}/>)
+              (transactionData) => <Transaction {...transactionData} key={transactionData.txid}/>)
             }
           </TableBody>
         </Table>
