@@ -13,19 +13,19 @@ export const Home = () => {
   const history = useHistory();
 
   return (
-    <div className="container">
+    <div className='container'>
       <Balance value={user.balance}/>
       <UserAddress address={user.address}/>
       <TransactionsTable transactions={user.transactions}/>
       <Switch>
-        <Route path="/viewKeys" render={() => (
+        <Route path='/viewKeys' render={() => (
           <ViewUserPrivateKey
             privateKey={user.privateKey}
             open={true}
             handleClose={() => history.push('/')}
           />
         )}/>
-        <Route path="/sendBitcoins" render={() => (
+        <Route path='/sendBitcoins' render={() => (
           <SendBitcoinForm
             open={true}
             handleClose={() => history.push('/')}
